@@ -1,4 +1,4 @@
-# 🔧 Los Hermanos 2.0: Sistema de Gestión para Taller Mecánico
+# 🔧 Los Hermanos: Sistema de Gestión para Taller Mecánico
 
 [![GitHub Flow](https://img.shields.io/badge/Workflow-GitHub%20Flow-blue.svg)](https://docs.github.com/en/get-started/using-github/github-flow)
 [![Metodología](https://img.shields.io/badge/Metodolog%C3%ADa-Kanban-brightgreen.svg)](README.md)
