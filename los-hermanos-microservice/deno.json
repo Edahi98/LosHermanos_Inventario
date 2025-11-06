@@ -3,7 +3,10 @@
     "dev": "deno run --watch main.ts",
     "linter": "deno run -A npm:prettier --write ."
   },
+  "nodeModulesDir": "manual",
   "imports": {
-    "@std/assert": "jsr:@std/assert@1"
+    "@std/assert": "jsr:@std/assert@1",
+    "pg-hstore": "npm:pg-hstore@2.3.4",
+    "pg": "npm:pg@8.16.3"
   }
 }
