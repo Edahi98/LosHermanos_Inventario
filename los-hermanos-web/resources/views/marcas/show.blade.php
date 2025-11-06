@@ -1,22 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
-        <div class="col-lg-12 margin-tb">
-            <div class="pull-left">
-                <h2> Show Marca</h2>
-            </div>
-            <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('marcas.index') }}"> Back</a>
-            </div>
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex items-center justify-between mb-6">
+            <h1 class="text-3xl font-bold text-gray-800">Detalles de la Marca</h1>
+            <a href="{{ route('marcas.index') }}" class="bg-gray-600 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
+                Volver
+            </a>
         </div>
-    </div>
 
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12">
-            <div class="form-group">
-                <strong>Nombre:</strong>
-                {{ $marca->nombre_marca }}
+        <div class="bg-white shadow-2xl rounded-lg p-6">
+            <div class="mb-4">
+                <strong class="text-gray-700 font-bold">ID:</strong>
+                <p class="text-gray-900">{{ $marca->id }}</p>
+            </div>
+            <div>
+                <strong class="text-gray-700 font-bold">Nombre:</strong>
+                <p class="text-gray-900">{{ $marca->nombre_marca }}</p>
             </div>
         </div>
     </div>

@@ -10,9 +10,16 @@ class MarcaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $marcas = Marca::all();
+        $query = Marca::query();
+
+        if ($request->filled('nombre')) {
+            $query->where('nombre_marca', 'like', '%' . $request->nombre . '%');
+        }
+
+        $marcas = $query->get();
+
         return view('marcas.index', compact('marcas'));
     }
 
