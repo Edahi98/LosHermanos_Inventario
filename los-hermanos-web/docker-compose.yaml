@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  # 1. SERVICIO DE LA APLICACIÓN (PHP-FPM)
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: edahisnacke/laravel_app_php
+    container_name: laravel_app_php
+    restart: always
+    
+    # === CORRECCIÓN CLAVE: CARGAR VARIABLES DESDE EL ARCHIVO .env ===
+    env_file:
+      - .env # Docker cargará todas las variables (DB_HOST, DB_USER, APP_KEY, etc.) desde este archivo.
+    # ====================================================================
+      
+    volumes:
+      - .:/var/www
+    networks:
+      - laravel_network
+
+  # 2. SERVICIO DEL SERVIDOR WEB (NGINX)
+  web:
+    image: nginx:stable-alpine
+    container_name: laravel_app_nginx
+    restart: always
+    ports:
+      - "80:80"
+    volumes:
+      - .:/var/www
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - app
+    networks:
+      - laravel_network
+
+# Definición de la red
+networks:
+  laravel_network:
+    driver: bridge
