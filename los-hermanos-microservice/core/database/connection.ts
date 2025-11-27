@@ -1,19 +1,15 @@
 
 import { Sequelize } from 'sequelize';
 import * as config from './config.ts';
-import process from 'node:process';
-
-
-const env = process.env.DENO_ENV || 'development';
-const dbConfig = config[env as keyof typeof config];
+import console from "node:console";
 
 const sequelize = new Sequelize(
-  dbConfig.database!,
-  dbConfig.username!,
-  dbConfig.password,
+  config.config.database!,
+  config.config.username!,
+  config.config.password,
   {
-    host: dbConfig.host,
-    dialect: dbConfig.dialect,
+    host: config.config.host,
+    dialect: config.config.dialect,
   }
 );
 

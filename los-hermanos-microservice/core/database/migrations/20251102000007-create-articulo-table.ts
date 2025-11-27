@@ -10,7 +10,7 @@ export default {
         primaryKey: true,
         type: DataTypes.INTEGER
       },
-      stok: {
+      stock: {
         type: DataTypes.INTEGER,
         allowNull: false
       },
@@ -51,14 +51,6 @@ export default {
         },
         onUpdate: 'CASCADE',
         onDelete: 'SET NULL'
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
       }
     });
   },

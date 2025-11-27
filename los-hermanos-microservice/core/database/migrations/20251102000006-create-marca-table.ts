@@ -12,14 +12,6 @@ export default {
       nombre_marca: {
         type: DataTypes.TEXT,
         allowNull: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: DataTypes.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: DataTypes.DATE
       }
     });
   },
