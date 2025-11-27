@@ -1,8 +1,0 @@
-services:
-  microservicio_los_hermanos:
-    image: edahisnake/microservicio_los_hermanos
-    # Se configuran los puertos
-    # 5577: Puerto interno del contenedor
-
-    ports:
-      - "5577:{PORT}"

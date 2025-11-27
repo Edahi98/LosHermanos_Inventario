@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  microservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: los-hermanos-microservice
+    image: edahisnacke/los-hermanos-microservice
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+    restart: unless-stopped
+    networks:
+      - microservice-network
+
+networks:
+  microservice-network:
+    driver: bridge
