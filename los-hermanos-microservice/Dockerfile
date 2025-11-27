@@ -1,18 +1,14 @@
 # Llama a la imagen de deno
 FROM denoland/deno:alpine
 
-# Configuración de conexión a la base de datos
-
-ENV DB_NAME=""
-ENV DB_PASSWORD=""
-ENV DB_PORT=""
-ENV DB_USER=""
-
 # Se establece el directorio de trabajo a donde se va a copiar todo el codigo fuente
-WORKDIR /microservicio_los_hernanos
-COPY . /microservicio_los_hernanos
+WORKDIR /app
+COPY . /app
 
 # Especifica el puerto
-EXPOSE 5577
+EXPOSE 3000
 
-CMD [ "deno", "--allow-all", "src/app.ts" ]
+# Instala dependencias
+RUN deno cache --reload index.ts
+
+CMD ["deno", "run", "--allow-all", "index.ts"]
