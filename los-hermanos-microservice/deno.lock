@@ -200,10 +200,18 @@
   },
   "workspace": {
     "dependencies": [
-      "jsr:@std/assert@1"
+      "jsr:@std/assert@1",
+      "npm:express-validator@6.14.0",
+      "npm:express@4.17.1",
+      "npm:pg-hstore@2.3.4",
+      "npm:pg@8.16.3"
     ],
     "packageJson": {
       "dependencies": [
+        "npm:@types/express@^5.0.5",
+        "npm:@types/node@^24.10.1",
+        "npm:express-validator@^6.14.0",
+        "npm:express@^4.17.1",
         "npm:pg-hstore@^2.3.4",
         "npm:pg@^8.16.3",
         "npm:prettier@3.6.2",
