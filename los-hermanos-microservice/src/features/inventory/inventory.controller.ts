@@ -5,6 +5,7 @@ import {
   InsufficientStockError,
   ArticuloNotFoundError,
   InvalidQuantityError,
+  isInventoryError,
 } from "../../shared/errors/inventory-errors.ts";
 
 interface Request {
@@ -81,10 +82,24 @@ export class InventoryController {
         Logger.warn("Validation error in subtractStock", {
           message: error instanceof Error ? error.message : String(error),
         });
-        throw error;
+      } else {
+        Logger.error("Error in subtractStock", error);
       }
-      Logger.error("Error in subtractStock", error);
-      throw error;
+
+      if (isInventoryError(error)) {
+        res.status(error.statusCode).json({
+          success: false,
+          code: error.code,
+          message: error.message,
+        });
+        return;
+      }
+
+      res.status(500).json({
+        success: false,
+        code: "INTERNAL_ERROR",
+        message: "Error interno del servidor",
+      });
     }
   }
 }
