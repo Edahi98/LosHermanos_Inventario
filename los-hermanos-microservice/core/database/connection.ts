@@ -9,7 +9,9 @@ const sequelize = new Sequelize(
   config.config.password,
   {
     host: config.config.host,
+    port: config.config.port,
     dialect: config.config.dialect,
+    dialectOptions: config.config.dialectOptions,
   }
 );
 
