@@ -9,6 +9,7 @@ COPY . /app
 EXPOSE 3000
 
 # Instala dependencias
+RUN deno install
 RUN deno cache --reload index.ts
 
 CMD ["deno", "run", "--allow-all", "index.ts"]
